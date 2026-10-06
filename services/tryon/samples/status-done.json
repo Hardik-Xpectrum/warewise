@@ -1,0 +1,23 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/v1/renders/ff78fad8-ff9a-4996-890e-4ec1c724cf4f"
+  },
+  "response": {
+    "status": 200,
+    "contentType": "application/json",
+    "body": {
+      "jobId": "ff78fad8-ff9a-4996-890e-4ec1c724cf4f",
+      "status": "done",
+      "cacheKey": "75592b58be2ab52cc88dae762f8c7bf7",
+      "renderPath": "142341f2-4823-472f-867f-8de2a092a542/tryon/ff78fad8-ff9a-4996-890e-4ec1c724cf4f.webp",
+      "textureForAvatar": {
+        "version": 1,
+        "texturePath": "142341f2-4823-472f-867f-8de2a092a542/tryon/ff78fad8-ff9a-4996-890e-4ec1c724cf4f-v1-front.png",
+        "backTexturePath": "142341f2-4823-472f-867f-8de2a092a542/tryon/ff78fad8-ff9a-4996-890e-4ec1c724cf4f-v1-back.png"
+      },
+      "note": "AI dressed the top: light blue polo shirt and bottom: blue jeans.",
+      "error": null
+    }
+  }
+}

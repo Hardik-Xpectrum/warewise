@@ -1,0 +1,48 @@
+name: Deploy
+
+# Runs after CI passes on main. Off until you set the repository variable DEPLOY_ENABLED=true and
+# add the secrets below (Settings -> Secrets and variables -> Actions).
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
+
+concurrency:
+  group: production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: vars.DEPLOY_ENABLED == 'true' && github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: production
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      # Database first: migrations are additive, so the old app keeps working against the new schema.
+      - run: npx supabase link --project-ref "${{ vars.SUPABASE_PROJECT_REF }}"
+      - run: npx supabase db push
+      - run: npx vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
+      - run: npx vercel build --prod --token="$VERCEL_TOKEN"
+      - run: npx vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN"
+      - name: Health check
+        run: |
+          for i in $(seq 1 10); do
+            curl -fsS "${{ vars.PRODUCTION_URL }}/api/health" && exit 0
+            sleep 6
+          done
+          exit 1

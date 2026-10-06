@@ -1,0 +1,16 @@
+{
+  "jobId": "3bc00121-24e8-4e9b-b5ec-6182069ccd3d",
+  "userId": "1defe8a2-a268-45f2-85e4-4e00422e1465",
+  "kind": "body360",
+  "views": {
+    "front": "1defe8a2-a268-45f2-85e4-4e00422e1465/scans/front.png",
+    "back": "1defe8a2-a268-45f2-85e4-4e00422e1465/scans/back.png",
+    "left": "1defe8a2-a268-45f2-85e4-4e00422e1465/scans/left.png",
+    "right": "1defe8a2-a268-45f2-85e4-4e00422e1465/scans/right.png"
+  },
+  "heightCm": 168,
+  "sizes": {
+    "topSize": "S",
+    "shoeUk": 6
+  }
+}

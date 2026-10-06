@@ -1,0 +1,39 @@
+{
+  "userId": "1defe8a2-a268-45f2-85e4-4e00422e1465",
+  "version": 3,
+  "kind": "body360",
+  "meshPath": "1defe8a2-a268-45f2-85e4-4e00422e1465/avatar3d/3bc00121-24e8-4e9b-b5ec-6182069ccd3d/body.glb",
+  "faceMeshPath": "1defe8a2-a268-45f2-85e4-4e00422e1465/avatar3d/ef508b4c-37a9-4a7c-a554-81c2f75d26bb/face.glb",
+  "measurements": {
+    "armCm": 55.0,
+    "hipCm": 78.0,
+    "shoeUk": 6.0,
+    "chestCm": 67.0,
+    "torsoCm": 50.0,
+    "waistCm": 51.0,
+    "heightCm": 168.0,
+    "inseamCm": 86.0,
+    "shoulderCm": 41.0,
+    "chestDepthCm": 18.0,
+    "waistDepthCm": 13.0
+  },
+  "measurementSources": {
+    "armCm": "average",
+    "hipCm": "measured",
+    "shoeUk": "size",
+    "chestCm": "measured",
+    "torsoCm": "average",
+    "waistCm": "measured",
+    "heightCm": "size",
+    "inseamCm": "measured",
+    "shoulderCm": "average",
+    "chestDepthCm": "measured",
+    "waistDepthCm": "measured"
+  },
+  "textured": false,
+  "engine": "hunyuan3d-2mv",
+  "createdAt": "2026-10-04T14:47:15.344Z",
+  "meshUrl": "<signed-url>",
+  "faceMeshUrl": "<signed-url>",
+  "building": false
+}

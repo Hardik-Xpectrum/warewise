@@ -1,0 +1,24 @@
+{
+  "note": "the avatar photo named in the request does not exist",
+  "request": {
+    "method": "POST",
+    "path": "{WEB_URL}/api/internal/events",
+    "headers": {
+      "authorization": "Service <signServiceToken('tryon','web',SERVICE_SECRET)>",
+      "content-type": "application/json"
+    },
+    "body": {
+      "type": "tryon.failed",
+      "jobId": "7a529f67-c1ae-4917-bd63-8379d4e6d87c",
+      "userId": "142341f2-4823-472f-867f-8de2a092a542",
+      "message": "The avatar photo was deleted",
+      "quota": false
+    }
+  },
+  "listener": {
+    "tokenVerified": true,
+    "iss": "tryon",
+    "validServiceEvent": true,
+    "answered": 204
+  }
+}

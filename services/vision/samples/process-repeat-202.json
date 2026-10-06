@@ -1,0 +1,22 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/v1/items/process",
+    "headers": {
+      "authorization": "Service <token>",
+      "content-type": "application/json"
+    },
+    "body": {
+      "jobId": "62424271-01cb-4f2e-8940-f5b2ae28e575",
+      "userId": "34383a76-55ea-487d-93ee-9c96247c9812",
+      "itemId": "f98b21fa-e30e-4b95-8798-642975591ed6",
+      "imagePath": "34383a76-55ea-487d-93ee-9c96247c9812/originals/f98b21fa-e30e-4b95-8798-642975591ed6.jpg"
+    }
+  },
+  "status": 202,
+  "response": {
+    "jobId": "62424271-01cb-4f2e-8940-f5b2ae28e575",
+    "status": "running",
+    "cached": false
+  }
+}

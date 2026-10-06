@@ -1,0 +1,76 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/v1/jobs/62424271-01cb-4f2e-8940-f5b2ae28e575",
+    "headers": {
+      "authorization": "Service <token>",
+      "content-type": "application/json"
+    }
+  },
+  "status": 200,
+  "response": {
+    "jobId": "62424271-01cb-4f2e-8940-f5b2ae28e575",
+    "itemId": "f98b21fa-e30e-4b95-8798-642975591ed6",
+    "status": "done",
+    "attempts": 1,
+    "tags": {
+      "fit": "regular",
+      "brand": null,
+      "model": "local-vision",
+      "colors": [
+        "mustard",
+        "orange"
+      ],
+      "fabric": "cotton",
+      "pattern": "solid",
+      "seasons": [
+        "all"
+      ],
+      "category": "top",
+      "formality": 3,
+      "confidence": 0.96,
+      "subcategory": "kurta"
+    },
+    "paths": {
+      "clean": "34383a76-55ea-487d-93ee-9c96247c9812/clean/f98b21fa-e30e-4b95-8798-642975591ed6.webp",
+      "thumb": "34383a76-55ea-487d-93ee-9c96247c9812/thumb/f98b21fa-e30e-4b95-8798-642975591ed6.webp",
+      "cutout": "34383a76-55ea-487d-93ee-9c96247c9812/cutout/f98b21fa-e30e-4b95-8798-642975591ed6.webp"
+    },
+    "error": null,
+    "userId": "34383a76-55ea-487d-93ee-9c96247c9812",
+    "result": {
+      "ok": true,
+      "tags": {
+        "fit": "regular",
+        "brand": null,
+        "model": "local-vision",
+        "colors": [
+          "mustard",
+          "orange"
+        ],
+        "fabric": "cotton",
+        "pattern": "solid",
+        "seasons": [
+          "all"
+        ],
+        "category": "top",
+        "formality": 3,
+        "confidence": 0.96,
+        "subcategory": "kurta"
+      },
+      "type": "item.processed",
+      "jobId": "62424271-01cb-4f2e-8940-f5b2ae28e575",
+      "paths": {
+        "clean": "34383a76-55ea-487d-93ee-9c96247c9812/clean/f98b21fa-e30e-4b95-8798-642975591ed6.webp",
+        "thumb": "34383a76-55ea-487d-93ee-9c96247c9812/thumb/f98b21fa-e30e-4b95-8798-642975591ed6.webp",
+        "cutout": "34383a76-55ea-487d-93ee-9c96247c9812/cutout/f98b21fa-e30e-4b95-8798-642975591ed6.webp"
+      },
+      "phash": "3232396949595993",
+      "itemId": "f98b21fa-e30e-4b95-8798-642975591ed6",
+      "userId": "34383a76-55ea-487d-93ee-9c96247c9812"
+    },
+    "eventDelivered": true,
+    "createdAt": "2026-10-04T14:51:44.411087+00:00",
+    "updatedAt": "2026-10-04T14:51:54.564137+00:00"
+  }
+}

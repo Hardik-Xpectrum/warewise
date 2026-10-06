@@ -1,0 +1,36 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/v1/jobs/21be6c09-548e-44db-8913-3e2e2a2d0ac3",
+    "headers": {
+      "authorization": "Service <token>",
+      "content-type": "application/json"
+    }
+  },
+  "status": 200,
+  "response": {
+    "jobId": "21be6c09-548e-44db-8913-3e2e2a2d0ac3",
+    "itemId": "2007d75f-7dfe-47d1-9c0a-3ddd88c22b65",
+    "status": "failed",
+    "attempts": 1,
+    "tags": null,
+    "paths": null,
+    "error": "This file is not a readable image",
+    "userId": "34383a76-55ea-487d-93ee-9c96247c9812",
+    "result": {
+      "ok": false,
+      "type": "item.processed",
+      "error": {
+        "message": "This file is not a readable image",
+        "retryable": false,
+        "userFacing": true
+      },
+      "jobId": "21be6c09-548e-44db-8913-3e2e2a2d0ac3",
+      "itemId": "2007d75f-7dfe-47d1-9c0a-3ddd88c22b65",
+      "userId": "34383a76-55ea-487d-93ee-9c96247c9812"
+    },
+    "eventDelivered": true,
+    "createdAt": "2026-10-04T14:51:44.681131+00:00",
+    "updatedAt": "2026-10-04T14:52:08.301831+00:00"
+  }
+}

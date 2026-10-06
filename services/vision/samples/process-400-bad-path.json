@@ -1,0 +1,24 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/v1/items/process",
+    "headers": {
+      "authorization": "Service <token>",
+      "content-type": "application/json"
+    },
+    "body": {
+      "jobId": "8930e0c3-9cee-41ca-81e1-d24e64cef2d4",
+      "userId": "34383a76-55ea-487d-93ee-9c96247c9812",
+      "itemId": "f98b21fa-e30e-4b95-8798-642975591ed6",
+      "imagePath": "d1043ea5-0828-4cde-be7e-dd3adcd9d80b/originals/x.jpg"
+    }
+  },
+  "status": 400,
+  "content-type": "application/problem+json",
+  "response": {
+    "type": "/errors/bad-request",
+    "title": "Invalid request",
+    "status": 400,
+    "detail": "imagePath: must be inside the user's own folder"
+  }
+}

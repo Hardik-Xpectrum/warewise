@@ -1,0 +1,46 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/api/internal/events",
+    "headers": {
+      "authorization": "Service <token>",
+      "content-type": "application/json"
+    },
+    "body": {
+      "type": "item.processed",
+      "jobId": "62424271-01cb-4f2e-8940-f5b2ae28e575",
+      "userId": "34383a76-55ea-487d-93ee-9c96247c9812",
+      "itemId": "f98b21fa-e30e-4b95-8798-642975591ed6",
+      "ok": true,
+      "tags": {
+        "category": "top",
+        "subcategory": "kurta",
+        "colors": [
+          "mustard",
+          "orange"
+        ],
+        "pattern": "solid",
+        "seasons": [
+          "all"
+        ],
+        "fabric": "cotton",
+        "formality": 3,
+        "fit": "regular",
+        "brand": null,
+        "confidence": 0.96,
+        "model": "local-vision"
+      },
+      "paths": {
+        "clean": "34383a76-55ea-487d-93ee-9c96247c9812/clean/f98b21fa-e30e-4b95-8798-642975591ed6.webp",
+        "thumb": "34383a76-55ea-487d-93ee-9c96247c9812/thumb/f98b21fa-e30e-4b95-8798-642975591ed6.webp",
+        "cutout": "34383a76-55ea-487d-93ee-9c96247c9812/cutout/f98b21fa-e30e-4b95-8798-642975591ed6.webp"
+      },
+      "phash": "3232396949595993"
+    }
+  },
+  "verified": {
+    "aud": "web",
+    "iss": "vision",
+    "contract": "ServiceEvent"
+  }
+}

@@ -1,0 +1,11 @@
+# BuildKit uses this file (next to the Dockerfile) for root-context builds:
+# send only what the image needs, never .env files, venvs or samples.
+*
+!packages/contracts-py/pyproject.toml
+!packages/contracts-py/warewise_contracts
+!services/tryon/requirements.lock
+!services/tryon/pyproject.toml
+!services/tryon/app
+!services/tryon/config
+**/__pycache__
+**/*.egg-info

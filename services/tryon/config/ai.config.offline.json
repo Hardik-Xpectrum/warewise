@@ -1,0 +1,8 @@
+{
+  "jobs": {
+    "tryon": { "chain": ["composite"], "promptVersion": "v1", "timeoutMs": 60000 }
+  },
+  "models": {
+    "composite": { "provider": "composite", "model": "pillow-composite" }
+  }
+}

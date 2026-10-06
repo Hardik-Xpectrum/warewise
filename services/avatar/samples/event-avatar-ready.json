@@ -1,0 +1,17 @@
+{
+  "receivedBy": "local listener standing in for POST {WEB_URL}/api/internal/events",
+  "tokenCheck": {
+    "ok": true,
+    "iss": "avatar",
+    "reason": null
+  },
+  "validServiceEvent": true,
+  "answered": 204,
+  "event": {
+    "type": "avatar.ready",
+    "jobId": "3bc00121-24e8-4e9b-b5ec-6182069ccd3d",
+    "userId": "1defe8a2-a268-45f2-85e4-4e00422e1465",
+    "version": 3
+  },
+  "comment": "version 3: the real Hunyuan3D-2mv body360 build"
+}

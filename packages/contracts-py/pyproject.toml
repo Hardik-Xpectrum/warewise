@@ -1,0 +1,16 @@
+[project]
+name = "warewise-contracts"
+version = "0.1.0"
+description = "The Warewise service contract (Python side): request/event models and service tokens."
+requires-python = ">=3.12"
+dependencies = ["pydantic>=2.7"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["warewise_contracts"]

@@ -1,0 +1,44 @@
+{
+  "jobs": {
+    "tagger": {
+      "chain": ["gemini-flash-lite", "gemini-flash", "openrouter-vision-free", "local-vision", "mock"],
+      "promptVersion": "v1",
+      "timeoutMs": 30000,
+      "retries": 1,
+      "temperature": 0.1
+    }
+  },
+  "models": {
+    "gemini-flash-lite": {
+      "baseURL": "https://generativelanguage.googleapis.com/v1beta/openai/",
+      "apiKeyEnv": "GEMINI_API_KEY",
+      "model": "gemini-2.5-flash-lite",
+      "limits": { "perMinute": 12, "perDay": 900 },
+      "supports": { "images": true, "tools": true, "json": "json_schema" }
+    },
+    "gemini-flash": {
+      "baseURL": "https://generativelanguage.googleapis.com/v1beta/openai/",
+      "apiKeyEnv": "GEMINI_API_KEY",
+      "model": "gemini-2.5-flash",
+      "limits": { "perMinute": 8, "perDay": 200 },
+      "supports": { "images": true, "tools": true, "json": "json_schema" }
+    },
+    "openrouter-vision-free": {
+      "baseURL": "https://openrouter.ai/api/v1",
+      "apiKeyEnv": "OPENROUTER_API_KEY",
+      "model": "openrouter/free",
+      "limits": { "perMinute": 15, "perDay": 45 },
+      "supports": { "images": true, "tools": false, "json": "json_object" }
+    },
+    "local-vision": {
+      "provider": "local-vision",
+      "model": "local-vision",
+      "supports": { "images": true, "tools": false, "json": "json_schema" }
+    },
+    "mock": {
+      "provider": "mock",
+      "model": "mock",
+      "supports": { "images": true, "tools": true, "json": "json_schema" }
+    }
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "jobs": {
+    "stylist": {
+      "chain": [
+        "gemini-flash",
+        "groq-main",
+        "openrouter-free",
+        "mock"
+      ],
+      "promptVersion": "v2",
+      "timeoutMs": 30000,
+      "retries": 1,
+      "temperature": 0.6
+    },
+    "tagger": {
+      "chain": [
+        "gemini-flash-lite",
+        "gemini-flash",
+        "openrouter-vision-free",
+        "local-vision",
+        "mock"
+      ],
+      "promptVersion": "v1",
+      "timeoutMs": 30000,
+      "retries": 1,
+      "temperature": 0.1
+    },
+    "tryon": {
+      "chain": [
+        "leffa-space",
+        "idm-vton-space"
+      ],
+      "promptVersion": "v1",
+      "timeoutMs": 420000,
+      "retries": 0
+    },
+    "avatar3d": {
+      "chain": [
+        "hf-trellis",
+        "hf-sf3d",
+        "fal-trellis",
+        "tripo-v3",
+        "meshy-lite"
+      ],
+      "promptVersion": "v1",
+      "timeoutMs": 240000,
+      "retries": 0
+    }
+  },
+  "models": {
+    "gemini-flash": {
+      "baseURL": "https://generativelanguage.googleapis.com/v1beta/openai/",
+      "apiKeyEnv": "GEMINI_API_KEY",
+      "model": "gemini-2.5-flash",
+      "limits": {
+        "perMinute": 8,
+        "perDay": 200
+      },
+      "supports": {
+        "images": true,
+        "tools": true,
+        "json": "json_schema"
+      }
+    },
+    "gemini-flash-lite": {
+      "baseURL": "https://generativelanguage.googleapis.com/v1beta/openai/",
+      "apiKeyEnv": "GEMINI_API_KEY",
+      "model": "gemini-2.5-flash-lite",
+      "limits": {
+        "perMinute": 12,
+        "perDay": 900
+      },
+      "supports": {
+        "images": true,
+        "tools": true,
+        "json": "json_schema"
+      }
+    },
+    "groq-main": {
+      "baseURL": "https://api.groq.com/openai/v1",
+      "apiKeyEnv": "GROQ_API_KEY",
+      "model": "llama-3.3-70b-versatile",
+      "limits": {
+        "perMinute": 25,
+        "perDay": 900
+      },
+      "supports": {
+        "images": false,
+        "tools": true,
+        "json": "json_object"
+      }
+    },
+    "openrouter-free": {
+      "baseURL": "https://openrouter.ai/api/v1",
+      "apiKeyEnv": "OPENROUTER_API_KEY",
+      "model": "openrouter/free",
+      "limits": {
+        "perMinute": 15,
+        "perDay": 45
+      },
+      "supports": {
+        "images": false,
+        "tools": true,
+        "json": "json_object"
+      }
+    },
+    "openrouter-vision-free": {
+      "baseURL": "https://openrouter.ai/api/v1",
+      "apiKeyEnv": "OPENROUTER_API_KEY",
+      "model": "openrouter/free",
+      "limits": {
+        "perMinute": 15,
+        "perDay": 45
+      },
+      "supports": {
+        "images": true,
+        "tools": false,
+        "json": "json_object"
+      }
+    },
+    "idm-vton-space": {
+      "provider": "hf-idm-vton",
+      "space": "yisol/IDM-VTON",
+      "apiKeyEnv": "HF_TOKEN",
+      "model": "IDM-VTON",
+      "limits": {
+        "perMinute": 2,
+        "perDay": 15
+      },
+      "supports": {
+        "images": true,
+        "tools": false,
+        "json": "none"
+      },
+      "tokenOptional": true
+    },
+    "mock": {
+      "provider": "mock",
+      "model": "mock",
+      "supports": {
+        "images": true,
+        "tools": true,
+        "json": "json_schema"
+      }
+    },
+    "leffa-space": {
+      "provider": "hf-leffa",
+      "space": "franciszzj/Leffa",
+      "apiKeyEnv": "HF_TOKEN",
+      "tokenOptional": true,
+      "model": "Leffa",
+      "limits": {
+        "perMinute": 2,
+        "perDay": 15
+      },
+      "supports": {
+        "images": true,
+        "tools": false,
+        "json": "none"
+      }
+    },
+    "fal-trellis": {
+      "provider": "fal-3d",
+      "model": "fal-ai/trellis",
+      "apiKeyEnv": "FAL_KEY",
+      "limits": {
+        "perDay": 30
+      },
+      "supports": {
+        "images": true,
+        "tools": false,
+        "json": "none"
+      }
+    },
+    "tripo-v3": {
+      "provider": "tripo-3d",
+      "model": "v3.1-20260211",
+      "apiKeyEnv": "TRIPO_API_KEY",
+      "limits": {
+        "perDay": 30
+      },
+      "supports": {
+        "images": true,
+        "tools": false,
+        "json": "none"
+      }
+    },
+    "meshy-lite": {
+      "provider": "meshy-3d",
+      "model": "meshy-6-lite",
+      "apiKeyEnv": "MESHY_API_KEY",
+      "limits": {
+        "perDay": 30
+      },
+      "supports": {
+        "images": true,
+        "tools": false,
+        "json": "none"
+      }
+    },
+    "hf-trellis": {
+      "provider": "hf-trellis",
+      "space": "trellis-community/TRELLIS",
+      "apiKeyEnv": "HF_TOKEN",
+      "tokenOptional": true,
+      "model": "TRELLIS",
+      "limits": {
+        "perMinute": 2,
+        "perDay": 20
+      },
+      "supports": {
+        "images": true,
+        "tools": false,
+        "json": "none"
+      }
+    },
+    "hf-sf3d": {
+      "provider": "hf-sf3d",
+      "space": "stabilityai/stable-fast-3d",
+      "apiKeyEnv": "HF_TOKEN",
+      "tokenOptional": true,
+      "model": "Stable Fast 3D",
+      "limits": {
+        "perMinute": 2,
+        "perDay": 20
+      },
+      "supports": {
+        "images": true,
+        "tools": false,
+        "json": "none"
+      }
+    },
+    "local-vision": {
+      "provider": "local-vision",
+      "model": "clip-vit-base-patch32+segformer_b2_clothes",
+      "supports": {
+        "images": true,
+        "tools": false,
+        "json": "json_schema"
+      }
+    }
+  }
+}

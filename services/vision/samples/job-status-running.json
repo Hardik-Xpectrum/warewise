@@ -1,0 +1,25 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/v1/jobs/62424271-01cb-4f2e-8940-f5b2ae28e575",
+    "headers": {
+      "authorization": "Service <token>",
+      "content-type": "application/json"
+    }
+  },
+  "status": 200,
+  "response": {
+    "jobId": "62424271-01cb-4f2e-8940-f5b2ae28e575",
+    "itemId": "f98b21fa-e30e-4b95-8798-642975591ed6",
+    "status": "running",
+    "attempts": 1,
+    "tags": null,
+    "paths": null,
+    "error": null,
+    "userId": "34383a76-55ea-487d-93ee-9c96247c9812",
+    "result": null,
+    "eventDelivered": false,
+    "createdAt": "2026-10-04T14:51:44.411087+00:00",
+    "updatedAt": "2026-10-04T14:51:44.441515+00:00"
+  }
+}

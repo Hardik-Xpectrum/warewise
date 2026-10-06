@@ -1,0 +1,14 @@
+# Used by `docker build -f services/vision/Dockerfile .` (context: repo root). Allowlist: only the
+# Python contract and this service go into the build context.
+*
+!packages/contracts-py/pyproject.toml
+!packages/contracts-py/warewise_contracts/**
+!services/vision/**
+services/vision/.venv
+services/vision/.cache
+services/vision/.env*
+!services/vision/.env.example
+services/vision/samples
+services/vision/tests
+**/__pycache__
+**/*.egg-info

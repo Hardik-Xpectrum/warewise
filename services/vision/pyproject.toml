@@ -1,0 +1,38 @@
+[project]
+name = "warewise-vision"
+version = "0.2.0"
+description = "Warewise vision service: checks, cleans, tags and cuts out garment photos"
+requires-python = ">=3.12"
+dependencies = [
+  "warewise-contracts",                # packages/contracts-py, installed editable
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "httpx>=0.27",
+  "supabase>=2.10",
+  "pillow>=11",
+  "numpy>=2",
+  "scipy>=1.13",
+  "torch>=2.4",                        # CPU wheels are enough
+  "transformers>=4.46",                # CLIP + SegFormer clothes parser
+  "rembg>=2.0.60",                     # accessory cut-outs (u2net via onnxruntime)
+  "onnxruntime>=1.19",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[tool.setuptools]
+packages = ["app", "app.ai"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 160
+target-version = "py312"
+exclude = [".venv", ".cache"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E731", "UP047"]

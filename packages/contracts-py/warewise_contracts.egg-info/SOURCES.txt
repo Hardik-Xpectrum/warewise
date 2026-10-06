@@ -1,0 +1,8 @@
+pyproject.toml
+tests/test_contracts.py
+warewise_contracts/__init__.py
+warewise_contracts.egg-info/PKG-INFO
+warewise_contracts.egg-info/SOURCES.txt
+warewise_contracts.egg-info/dependency_links.txt
+warewise_contracts.egg-info/requires.txt
+warewise_contracts.egg-info/top_level.txt
