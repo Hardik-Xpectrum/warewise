@@ -1,0 +1,23 @@
+{
+  "comment": "the listener answered 503 to the first delivery; the service retried after 1 minute",
+  "attempts": [
+    {
+      "answered": 503,
+      "event": {
+        "type": "avatar.ready",
+        "jobId": "68d3dc06-5dd2-42ca-bcc4-33bd83c07c49",
+        "userId": "1defe8a2-a268-45f2-85e4-4e00422e1465",
+        "version": 1
+      }
+    },
+    {
+      "answered": 204,
+      "event": {
+        "type": "avatar.ready",
+        "jobId": "68d3dc06-5dd2-42ca-bcc4-33bd83c07c49",
+        "userId": "1defe8a2-a268-45f2-85e4-4e00422e1465",
+        "version": 1
+      }
+    }
+  ]
+}

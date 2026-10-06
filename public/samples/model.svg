@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="1500" viewBox="0 0 600 1500">
+  <!-- Warewise sample model: a faceless illustrated figure in a plain base layer, used on Try-on
+       until someone adds their own photo. Joints match src/modules/tryon/sampleModel.ts. -->
+  <rect width="600" height="1500" fill="#f4f3f1"/>
+  <ellipse cx="300" cy="1440" rx="170" ry="22" fill="#000" opacity="0.06"/>
+  <g stroke-linecap="round" stroke-linejoin="round" fill="none" stroke="#d9c3ad">
+    <!-- arms -->
+    <path d="M200 312 L178 530 L162 738" stroke-width="54"/>
+    <path d="M400 312 L422 530 L438 738" stroke-width="54"/>
+    <!-- legs -->
+    <path d="M250 800 L244 1070 L246 1372" stroke-width="84"/>
+    <path d="M350 800 L356 1070 L354 1372" stroke-width="84"/>
+  </g>
+  <!-- hands -->
+  <ellipse cx="160" cy="772" rx="26" ry="38" fill="#d9c3ad"/>
+  <ellipse cx="440" cy="772" rx="26" ry="38" fill="#d9c3ad"/>
+  <!-- neck and head -->
+  <path d="M272 200 L328 200 L334 292 L266 292 Z" fill="#cdb59e"/>
+  <ellipse cx="300" cy="148" rx="60" ry="76" fill="#d9c3ad"/>
+  <path d="M242 128 C244 70 290 58 318 64 C352 70 364 100 360 136 C350 104 320 92 296 96 C270 100 250 110 242 128 Z" fill="#2b2522"/>
+  <!-- torso in a plain grey base layer -->
+  <path d="M192 292 C230 280 370 280 408 292 C420 360 400 470 372 560 C366 640 378 700 384 790 L216 790 C222 700 234 640 228 560 C200 470 180 360 192 292 Z" fill="#bdbab5"/>
+  <path d="M262 292 C280 318 320 318 338 292" fill="none" stroke="#a9a6a1" stroke-width="6"/>
+  <!-- shorts -->
+  <path d="M214 780 L386 780 L392 900 L308 900 L300 850 L292 900 L208 900 Z" fill="#8f8b86"/>
+  <!-- shoes -->
+  <path d="M212 1380 C214 1360 270 1360 276 1380 L280 1420 C260 1428 222 1428 206 1420 Z" fill="#3a3632"/>
+  <path d="M324 1380 C330 1360 386 1360 388 1380 L394 1420 C378 1428 340 1428 320 1420 Z" fill="#3a3632"/>
+</svg>

@@ -1,0 +1,46 @@
+{
+  "chains": {
+    "photo": ["hf-trellis", "hf-sf3d", "fal-trellis", "tripo-v3", "meshy-lite"],
+    "body360": ["hf-hunyuan3d-2mv", "hf-trellis-multi"]
+  },
+  "pollBudgetMs": 200000,
+  "engines": {
+    "hf-hunyuan3d-2mv": {
+      "provider": "hf-hunyuan3d-mv",
+      "space": "tencent/Hunyuan3D-2mv",
+      "apiKeyEnv": "HF_TOKEN",
+      "tokenOptional": true,
+      "textured": true,
+      "timeoutMs": 300000,
+      "limits": { "perDay": 6 }
+    },
+    "hf-trellis-multi": {
+      "provider": "hf-trellis-multi",
+      "space": "trellis-community/TRELLIS",
+      "apiKeyEnv": "HF_TOKEN",
+      "tokenOptional": true,
+      "timeoutMs": 240000,
+      "limits": { "perDay": 10 }
+    },
+    "hf-trellis": {
+      "provider": "hf-trellis",
+      "space": "trellis-community/TRELLIS",
+      "apiKeyEnv": "HF_TOKEN",
+      "tokenOptional": true,
+      "timeoutMs": 240000,
+      "limits": { "perDay": 10 }
+    },
+    "hf-sf3d": {
+      "provider": "hf-sf3d",
+      "space": "stabilityai/stable-fast-3d",
+      "apiKeyEnv": "HF_TOKEN",
+      "tokenOptional": true,
+      "timeoutMs": 240000,
+      "limits": { "perDay": 10 }
+    },
+    "fal-trellis": { "provider": "fal-3d", "model": "fal-ai/trellis", "apiKeyEnv": "FAL_KEY", "limits": { "perDay": 30 } },
+    "tripo-v3": { "provider": "tripo-3d", "model": "v3.1-20260211", "apiKeyEnv": "TRIPO_API_KEY", "limits": { "perDay": 30 } },
+    "meshy-lite": { "provider": "meshy-3d", "model": "meshy-6-lite", "apiKeyEnv": "MESHY_API_KEY", "limits": { "perDay": 30 } },
+    "mock-3d": { "provider": "mock-3d" }
+  }
+}

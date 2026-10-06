@@ -1,0 +1,59 @@
+{
+  "jobs": {
+    "stylist": {
+      "chain": [
+        "mock"
+      ],
+      "promptVersion": "v2"
+    },
+    "tagger": {
+      "chain": [
+        "mock"
+      ],
+      "promptVersion": "v1"
+    },
+    "tryon": {
+      "chain": [
+        "composite"
+      ],
+      "promptVersion": "v1"
+    },
+    "avatar3d": {
+      "chain": [
+        "mock-3d"
+      ],
+      "promptVersion": "v1",
+      "timeoutMs": 240000,
+      "retries": 0
+    }
+  },
+  "models": {
+    "mock": {
+      "provider": "mock",
+      "model": "mock",
+      "supports": {
+        "images": true,
+        "tools": true,
+        "json": "json_schema"
+      }
+    },
+    "composite": {
+      "provider": "composite",
+      "model": "server-composite",
+      "supports": {
+        "images": true,
+        "tools": false,
+        "json": "none"
+      }
+    },
+    "mock-3d": {
+      "provider": "mock-3d",
+      "model": "mock-box",
+      "supports": {
+        "images": true,
+        "tools": false,
+        "json": "none"
+      }
+    }
+  }
+}

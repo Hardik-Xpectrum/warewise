@@ -1,0 +1,24 @@
+{
+  "jobs": {
+    "tryon": { "chain": ["idm-vton-space", "leffa-space"], "promptVersion": "v1", "timeoutMs": 420000 }
+  },
+  "models": {
+    "idm-vton-space": {
+      "provider": "hf-idm-vton",
+      "space": "yisol/IDM-VTON",
+      "apiKeyEnv": "HF_TOKEN",
+      "tokenOptional": true,
+      "model": "IDM-VTON",
+      "limits": { "perMinute": 2, "perDay": 15 }
+    },
+    "leffa-space": {
+      "provider": "hf-leffa",
+      "space": "franciszzj/Leffa",
+      "apiKeyEnv": "HF_TOKEN",
+      "tokenOptional": true,
+      "model": "Leffa",
+      "limits": { "perMinute": 2, "perDay": 15 }
+    },
+    "composite": { "provider": "composite", "model": "pillow-composite" }
+  }
+}

@@ -1,0 +1,8 @@
+# For builds with this folder as the context (the Dockerfile itself expects the repo root).
+.venv
+.env
+__pycache__
+.pytest_cache
+.ruff_cache
+samples
+tests

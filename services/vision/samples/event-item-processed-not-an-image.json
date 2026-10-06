@@ -1,0 +1,27 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/api/internal/events",
+    "headers": {
+      "authorization": "Service <token>",
+      "content-type": "application/json"
+    },
+    "body": {
+      "type": "item.processed",
+      "jobId": "21be6c09-548e-44db-8913-3e2e2a2d0ac3",
+      "userId": "34383a76-55ea-487d-93ee-9c96247c9812",
+      "itemId": "2007d75f-7dfe-47d1-9c0a-3ddd88c22b65",
+      "ok": false,
+      "error": {
+        "message": "This file is not a readable image",
+        "userFacing": true,
+        "retryable": false
+      }
+    }
+  },
+  "verified": {
+    "aud": "web",
+    "iss": "vision",
+    "contract": "ServiceEvent"
+  }
+}

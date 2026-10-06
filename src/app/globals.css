@@ -1,0 +1,279 @@
+@import "tailwindcss";
+
+/* Warewise design tokens. Editorial retail look: white canvas, black ink, square corners, one
+   warm red reserved for favourites and alerts. Dark mode inverts ink and paper. */
+:root {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f4f3f1; /* product image backdrop */
+  --text: #222222;
+  --muted: #5f5f5f; /* 6.4:1 on white, 5.8:1 on the tile grey: passes WCAG AA for small text */
+  --line: #e4e4e4;
+  --accent: #222222; /* primary actions are black */
+  --accent-contrast: #ffffff;
+  --heart: #c4122f; /* favourites */
+  --ok: #2e7d4f;
+  --warn: #9a6a00;
+  --danger: #c4122f;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111111;
+    --surface: #161616;
+    --surface-2: #1f1f1f;
+    --text: #f1f1f1;
+    --muted: #9b9b9b;
+    --line: #2c2c2c;
+    --accent: #f1f1f1;
+    --accent-contrast: #111111;
+    --heart: #ff5a6e;
+    --ok: #7bc596;
+    --warn: #e2b44f;
+    --danger: #ff6b6b;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-heart: var(--heart);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-geist-sans);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Tailwind v4 custom utilities, so they can be composed with @apply. Square corners throughout;
+   actions are small uppercase labels with generous letter spacing. */
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs font-semibold tracking-[0.08em] uppercase transition active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-40 disabled:active:scale-100;
+}
+@utility btn-primary {
+  @apply btn bg-accent text-accent-contrast hover:opacity-85;
+}
+@utility btn-ghost {
+  @apply btn border border-text bg-transparent text-text hover:bg-text hover:text-bg;
+}
+@utility btn-danger {
+  @apply btn border border-danger text-danger hover:bg-danger hover:text-white;
+}
+@utility card {
+  @apply border border-line bg-surface;
+}
+@utility input {
+  @apply w-full border border-line bg-surface px-3 py-2.5 text-sm text-text outline-none transition focus:border-text;
+}
+/* Safari draws native selects shorter than inputs and ignores their padding: draw our own so a
+   select and a text input side by side are the same height, with a chevron that suits the theme. */
+select.input {
+  appearance: none;
+  height: 2.625rem;
+  padding-right: 2.25rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%23888' stroke-width='1.5'%3E%3Cpath d='M3 4.5l3 3 3-3'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 0.75rem;
+}
+input.input {
+  height: 2.625rem;
+}
+@utility label {
+  @apply mb-1.5 block text-[11px] font-semibold tracking-[0.12em] text-muted uppercase;
+}
+@utility chip {
+  @apply inline-flex items-center border border-line bg-surface px-2 py-0.5 text-[11px] tracking-wide text-muted uppercase;
+}
+@utility eyebrow {
+  @apply text-[11px] font-semibold tracking-[0.14em] text-muted uppercase;
+}
+/* Loading placeholder: a light band sweeps across, like premium retail sites (calmer than a pulse). */
+@keyframes shimmer {
+  from {
+    background-position: 150% 0;
+  }
+  to {
+    background-position: -50% 0;
+  }
+}
+@utility skeleton {
+  background-color: var(--surface-2);
+  background-image: linear-gradient(100deg, transparent 20%, color-mix(in srgb, var(--bg) 55%, transparent) 50%, transparent 80%);
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+/* A visible keyboard focus ring everywhere (buttons and links had none). */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Motion: content rises in softly. Used by pages, cards and toasts. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* "backwards", not "both": a finished animation must not leave a transform behind, or every
+   position: fixed sheet inside the page would be trapped in (and clipped to) its wrapper. */
+@utility animate-rise {
+  animation: rise 220ms cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+}
+
+/* Garments on light tiles: a tight edge shadow keeps white pieces visible, and a soft one gives
+   them weight. drop-shadow follows the cut-out's outline, not the image rectangle. */
+@utility garment-shadow {
+  filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.2)) drop-shadow(0 10px 14px rgb(0 0 0 / 0.1));
+}
+
+/* Favourite: the heart pops and a ring bursts outward once, when it becomes a favourite. */
+@keyframes heart-pop {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.3); }
+  65% { transform: scale(0.94); }
+  100% { transform: scale(1); }
+}
+@keyframes heart-ring {
+  from { opacity: 0.55; transform: scale(0.4); }
+  to { opacity: 0; transform: scale(1.7); }
+}
+@utility animate-heart {
+  position: relative;
+  & svg {
+    animation: heart-pop 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border-radius: 9999px;
+    border: 2px solid var(--heart);
+    animation: heart-ring 480ms ease-out forwards;
+    pointer-events: none;
+  }
+}
+
+/* Onboarding steps slide in from the side they come from. */
+@keyframes step-in {
+  from { opacity: 0; transform: translateX(28px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes step-back {
+  from { opacity: 0; transform: translateX(-28px); }
+  to { opacity: 1; transform: none; }
+}
+@utility animate-step-in {
+  animation: step-in 320ms cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+}
+@utility animate-step-back {
+  animation: step-back 320ms cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+}
+
+/* Sheets: up from the bottom on phones, in from the right on larger screens. */
+@keyframes sheet-up {
+  from { transform: translateY(100%); }
+  to { transform: none; }
+}
+@keyframes sheet-left {
+  from { transform: translateX(100%); }
+  to { transform: none; }
+}
+@utility sheet-panel {
+  animation: sheet-up 300ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  @media (width >= 40rem) {
+    animation-name: sheet-left;
+  }
+}
+
+/* Wipe reveal: product images uncover top to bottom as they scroll into view, like an editorial
+   lookbook. Browsers without scroll-driven animations simply show the image. */
+@keyframes wipe {
+  from { clip-path: inset(0 0 100% 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+@utility wipe-reveal {
+  @supports (animation-timeline: view()) {
+    animation: wipe linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;
+  }
+}
+
+/* Header collapse: once the page scrolls, the header tightens and gains a hairline shadow. */
+@utility header-shell {
+  transition: box-shadow 200ms ease;
+  & > div {
+    transition: padding 200ms ease;
+  }
+  &[data-scrolled="true"] {
+    box-shadow: 0 1px 12px rgb(0 0 0 / 0.06);
+  }
+  &[data-scrolled="true"] > div {
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+  }
+}
+
+/* Shared-element morph between the wardrobe grid and an item page (View Transitions API). */
+::view-transition-group(*) {
+  animation-duration: 320ms;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Landing hero: flat-lay → outfit on the model → back, on an 7 s loop. Pieces are placed at their
+   final spot; --dx/--dy (container units) and --r describe where they lie in the flat-lay. */
+@utility hero-stage {
+  container-type: size;
+}
+@keyframes assemble {
+  0%, 12% { transform: translate(var(--dx), var(--dy)) rotate(var(--r)) scale(0.82); }
+  32%, 82% { transform: none; }
+  96%, 100% { transform: translate(var(--dx), var(--dy)) rotate(var(--r)) scale(0.82); }
+}
+@keyframes caption-in {
+  0%, 30% { opacity: 0; transform: translateY(8px); }
+  38%, 80% { opacity: 1; transform: none; }
+  88%, 100% { opacity: 0; transform: translateY(8px); }
+}
+@utility hero-piece {
+  animation: assemble 7s cubic-bezier(0.65, 0, 0.35, 1) infinite both;
+  will-change: transform;
+}
+@utility hero-caption {
+  animation: caption-in 7s ease infinite both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-piece,
+  .hero-caption {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
+}

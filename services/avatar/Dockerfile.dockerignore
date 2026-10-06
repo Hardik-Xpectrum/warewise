@@ -1,0 +1,10 @@
+# Docker (BuildKit) reads this file when building from the repo root with
+# -f services/avatar/Dockerfile. Allowlist: only the contract and this service.
+*
+!packages/contracts-py/pyproject.toml
+!packages/contracts-py/warewise_contracts/**
+!services/avatar/requirements.lock
+!services/avatar/config/**
+!services/avatar/app/**
+**/__pycache__
+**/*.pyc

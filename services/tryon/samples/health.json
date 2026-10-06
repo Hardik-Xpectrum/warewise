@@ -1,0 +1,15 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/health"
+  },
+  "response": {
+    "status": 200,
+    "contentType": "application/json",
+    "body": {
+      "ok": true,
+      "service": "tryon",
+      "version": "0.1.0"
+    }
+  }
+}

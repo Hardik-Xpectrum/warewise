@@ -1,0 +1,24 @@
+{
+  "note": "after the real IDM-VTON + Leffa render",
+  "request": {
+    "method": "POST",
+    "path": "{WEB_URL}/api/internal/events",
+    "headers": {
+      "authorization": "Service <signServiceToken('tryon','web',SERVICE_SECRET)>",
+      "content-type": "application/json"
+    },
+    "body": {
+      "type": "tryon.ready",
+      "jobId": "ff78fad8-ff9a-4996-890e-4ec1c724cf4f",
+      "userId": "142341f2-4823-472f-867f-8de2a092a542",
+      "renderPath": "142341f2-4823-472f-867f-8de2a092a542/tryon/ff78fad8-ff9a-4996-890e-4ec1c724cf4f.webp",
+      "note": "AI dressed the top: light blue polo shirt and bottom: blue jeans."
+    }
+  },
+  "listener": {
+    "tokenVerified": true,
+    "iss": "tryon",
+    "validServiceEvent": true,
+    "answered": 204
+  }
+}

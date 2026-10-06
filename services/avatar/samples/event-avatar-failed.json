@@ -1,0 +1,17 @@
+{
+  "receivedBy": "local listener standing in for POST {WEB_URL}/api/internal/events",
+  "tokenCheck": {
+    "ok": true,
+    "iss": "avatar",
+    "reason": null
+  },
+  "validServiceEvent": true,
+  "answered": 204,
+  "event": {
+    "type": "avatar.failed",
+    "jobId": "31266cc9-7703-4b9a-8cbb-bc9ebc931c3c",
+    "userId": "1defe8a2-a268-45f2-85e4-4e00422e1465",
+    "message": "The face scan isn't a usable 3D model (a GLB file under 50 MB is needed). Please scan again.",
+    "retryable": false
+  }
+}

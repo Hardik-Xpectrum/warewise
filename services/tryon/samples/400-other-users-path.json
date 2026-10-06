@@ -1,0 +1,45 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/v1/renders",
+    "headers": {
+      "authorization": "Service <signServiceToken('web','tryon',SERVICE_SECRET)>",
+      "content-type": "application/json"
+    },
+    "body": {
+      "jobId": "636849ee-d26f-476c-9dd5-fddc17a37955",
+      "userId": "142341f2-4823-472f-867f-8de2a092a542",
+      "personImagePath": "6f4a9a5a-0e85-4d1c-b8e8-325960fa650b/avatar/someone-else.webp",
+      "avatarVersion": 1,
+      "garments": [
+        {
+          "itemId": "bc3c1891-7735-4ff4-92ff-fc6fc1fa811d",
+          "slot": "top",
+          "description": "light blue polo shirt",
+          "imagePath": "142341f2-4823-472f-867f-8de2a092a542/clean/bc3c1891-7735-4ff4-92ff-fc6fc1fa811d.webp",
+          "cutoutPath": "142341f2-4823-472f-867f-8de2a092a542/cutout/bc3c1891-7735-4ff4-92ff-fc6fc1fa811d.webp",
+          "updatedAt": "2026-09-30T11:07:28.232558+00:00"
+        },
+        {
+          "itemId": "1aeca934-e393-4b8c-853d-8076b3b1cc60",
+          "slot": "bottom",
+          "description": "blue jeans",
+          "imagePath": "142341f2-4823-472f-867f-8de2a092a542/clean/1aeca934-e393-4b8c-853d-8076b3b1cc60.webp",
+          "cutoutPath": "142341f2-4823-472f-867f-8de2a092a542/cutout/1aeca934-e393-4b8c-853d-8076b3b1cc60.webp",
+          "updatedAt": "2026-09-30T11:07:03.659974+00:00"
+        }
+      ],
+      "pose": "<33 landmarks>"
+    }
+  },
+  "response": {
+    "status": 400,
+    "contentType": "application/problem+json",
+    "body": {
+      "type": "/errors/bad-request",
+      "title": "Invalid render request",
+      "status": 400,
+      "detail": "All image paths must be under the user's own folder"
+    }
+  }
+}

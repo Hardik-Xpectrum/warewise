@@ -1,0 +1,12 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/health"
+  },
+  "status": 200,
+  "response": {
+    "ok": true,
+    "service": "vision",
+    "version": "0.2.0"
+  }
+}

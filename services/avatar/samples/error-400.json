@@ -1,0 +1,19 @@
+{
+  "status": 400,
+  "request": {
+    "jobId": "5fa50245-d32f-41ae-94dd-6655a850e552",
+    "userId": "1defe8a2-a268-45f2-85e4-4e00422e1465",
+    "kind": "body360",
+    "views": {
+      "front": "1defe8a2-a268-45f2-85e4-4e00422e1465/scans/front.png"
+    },
+    "heightCm": 168
+  },
+  "contentType": "application/problem+json",
+  "body": {
+    "type": "/errors/bad-request",
+    "title": "Invalid build request",
+    "status": 400,
+    "detail": "A 360\u00b0 scan needs views.front, back, left and right"
+  }
+}

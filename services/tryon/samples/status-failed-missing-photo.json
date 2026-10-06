@@ -1,0 +1,19 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/v1/renders/7a529f67-c1ae-4917-bd63-8379d4e6d87c"
+  },
+  "response": {
+    "status": 200,
+    "contentType": "application/json",
+    "body": {
+      "jobId": "7a529f67-c1ae-4917-bd63-8379d4e6d87c",
+      "status": "failed",
+      "cacheKey": "4de471ffc140b89949f778f2d64e28e4",
+      "renderPath": null,
+      "textureForAvatar": null,
+      "note": null,
+      "error": "The avatar photo was deleted"
+    }
+  }
+}

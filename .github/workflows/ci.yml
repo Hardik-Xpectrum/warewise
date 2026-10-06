@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      # Build-time placeholders only; no real secrets are needed to lint, test and build.
+      NEXT_PUBLIC_SUPABASE_URL: http://127.0.0.1:54321
+      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: ci-placeholder
+      SUPABASE_SECRET_KEY: ci-placeholder
+      JOB_SECRET: ci-placeholder
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      # Fail on known high/critical vulnerabilities in what ships (dev tools excluded).
+      - run: npm audit --omit=dev --audit-level=high
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+
+  database:
+    # Applies every migration to a throwaway local Supabase and runs the API smoke test against it.
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx supabase start -x studio,imgproxy,edge-runtime,logflare,vector,supavisor
+      - name: Every table has row-level security
+        run: docker exec -i supabase_db_warewise psql -U postgres -d postgres -v ON_ERROR_STOP=1 < supabase/tests/rls_enabled.sql
+      - name: Write .env.local from the local stack
+        run: |
+          eval "$(npx supabase status -o env | sed 's/^/export SB_/')"
+          {
+            echo "NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321"
+            echo "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=$SB_PUBLISHABLE_KEY"
+            echo "SUPABASE_SECRET_KEY=$SB_SECRET_KEY"
+            echo "JOB_SECRET=local-dev-job-secret"
+            echo "AI_CONFIG_FILE=config/ai.config.mock.json"
+            echo "NEXT_PUBLIC_ENABLE_EMAIL_LOGIN=true"
+          } > .env.local
+      - run: npm run build
+      - run: npm start &
+      - run: npx wait-on -t 60000 http://localhost:3000/api/health
+      - run: npm run smoke
+      # Real-browser journeys (sign-in by email link from the local mailbox, samples, Today,
+      # Complete the look, stylist swipe deck, favourites, export, account deletion).
+      - run: npx playwright install --with-deps chromium
+      - run: npm run e2e
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 7

@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: warewise-contracts
+Version: 0.1.0
+Summary: The Warewise service contract (Python side): request/event models and service tokens.
+Requires-Python: >=3.12
+Requires-Dist: pydantic>=2.7
+Provides-Extra: test
+Requires-Dist: pytest>=8; extra == "test"

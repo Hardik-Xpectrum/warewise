@@ -1,0 +1,19 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/v1/renders/ff78fad8-ff9a-4996-890e-4ec1c724cf4f"
+  },
+  "response": {
+    "status": 200,
+    "contentType": "application/json",
+    "body": {
+      "jobId": "ff78fad8-ff9a-4996-890e-4ec1c724cf4f",
+      "status": "running",
+      "cacheKey": "75592b58be2ab52cc88dae762f8c7bf7",
+      "renderPath": null,
+      "textureForAvatar": null,
+      "note": null,
+      "error": null
+    }
+  }
+}

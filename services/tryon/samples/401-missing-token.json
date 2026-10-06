@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/v1/renders/<jobId>",
+    "headers": {}
+  },
+  "response": {
+    "status": 401,
+    "contentType": "application/problem+json",
+    "body": {
+      "type": "/errors/unauthorized",
+      "title": "Unauthorized",
+      "status": 401,
+      "detail": "missing token"
+    }
+  }
+}

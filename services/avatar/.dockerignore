@@ -1,0 +1,10 @@
+# Used when the build context is the repo root and BuildKit does not pick up
+# Dockerfile.dockerignore (older Docker). Same allowlist.
+*
+!packages/contracts-py/pyproject.toml
+!packages/contracts-py/warewise_contracts/**
+!services/avatar/requirements.lock
+!services/avatar/config/**
+!services/avatar/app/**
+**/__pycache__
+**/*.pyc

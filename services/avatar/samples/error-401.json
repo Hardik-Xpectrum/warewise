@@ -1,0 +1,10 @@
+{
+  "status": 401,
+  "contentType": "application/problem+json",
+  "body": {
+    "type": "/errors/unauthorized",
+    "title": "Service token rejected",
+    "status": 401,
+    "detail": "missing token"
+  }
+}
