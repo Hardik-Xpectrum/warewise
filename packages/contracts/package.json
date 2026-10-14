@@ -9,9 +9,9 @@
     ".": "./src/index.ts"
   },
   "peerDependencies": {
-    "zod": "^4.6.5"
+    "zod": "^4.6.6"
   },
   "devDependencies": {
-    "zod": "^4.6.5"
+    "zod": "^4.6.6"
   }
 }
